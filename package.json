@@ -7,6 +7,7 @@
     "stocks": "./cli.js"
   },
   "dependencies": {
+    "babar": "^0.1.0",
     "caporal": "^0.3.0",
     "cheerio": "^0.22.0"
   },
