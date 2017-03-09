@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 
 const prog = require('caporal');
+const colors = require('colors');
 const pkg = require('./package');
 const Canvas = require('drawille');
 const line = require('bresenham');
@@ -20,15 +21,16 @@ prog
     .argument('<symbol>', 'The stock symbol')
     .action((args, options, logger) => {
         yf.history(args.symbol).then((response) => {
-            const points = response.map(
+            const points = response.records.map(
                 (p) => {
                     return [ p.time, p.close ];
                 }
             );
+            const close = points[points.length - 1];
             const low = Math.floor(Math.min.apply(null, points.map(p => p[1])));
             const high = Math.ceil(Math.max.apply(null, points.map(p => p[1])));
-            const canvasWidth = 180;
-            const canvasHeight = 80;
+            const canvasWidth = (process.stdout.columns * 2) - 10;
+            const canvasHeight = canvasWidth * 0.45;
             const slice = high - low;
             const stepY = canvasHeight / slice;
             const c = new Canvas(canvasWidth, canvasHeight);
@@ -39,7 +41,12 @@ prog
                     (high - p[1]) * stepY
                 );
             });
-            console.log(c.frame());
+
+            if (close[1] >= response.previousClose) {
+                console.log(colors.green(c.frame()));
+            } else {
+                console.log(colors.red(c.frame()));
+            }
         });
     });
 

@@ -51,8 +51,9 @@ const history = (symbol) => new Promise((resolve, reject) => {
     const end = start.clone().hour(21).minute(0).second(0).millisecond(0);
     getJson(`https://query2.finance.yahoo.com/v7/finance/chart/${symbol}?period2=${end.unix()}&period1=${start.unix()}&interval=1m&indicators=quote&includeTimestamps=true&includePrePost=true&events=div%7Csplit%7Cearn`)
         .then((response) => {
+            const quote = response.chart.result[0].indicators.quote[0];
+            const meta = response.chart.result[0].meta;
             const h = response.chart.result[0].timestamp.map((time, idx) => {
-                const quote = response.chart.result[0].indicators.quote[0];
                 return {
                     time,
                     close: quote.close[idx],
@@ -62,7 +63,10 @@ const history = (symbol) => new Promise((resolve, reject) => {
                     volume: quote.volume[idx],
                 };
             });
-           resolve(h);
+            resolve({
+                previousClose: meta.previousClose,
+                records: h,
+            });
         })
         .catch(reject);
 });
