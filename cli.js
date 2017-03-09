@@ -19,8 +19,9 @@ prog
 
     .command('history', 'See history of a symbol')
     .argument('<symbol>', 'The stock symbol')
+    .option('--interval <interval>', '1d, 5d, 1m')
     .action((args, options, logger) => {
-        yf.history(args.symbol).then((response) => {
+        yf.history(args.symbol, options).then((response) => {
             const points = response.records.map(
                 (p) => {
                     return [ p.time, p.close ];

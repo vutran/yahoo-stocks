@@ -46,10 +46,20 @@ const lookup = (symbol) => new Promise((resolve, reject) => {
         .catch(reject);
 });
 
-const history = (symbol) => new Promise((resolve, reject) => {
+const history = (symbol, options) => new Promise((resolve, reject) => {
+    let interval = '1m';
     const start = moment().utc().hour(14).minute(30).second(0).millisecond(0).subtract(1, 'day');
     const end = start.clone().hour(21).minute(0).second(0).millisecond(0);
-    getJson(`https://query2.finance.yahoo.com/v7/finance/chart/${symbol}?period2=${end.unix()}&period1=${start.unix()}&interval=1m&indicators=quote&includeTimestamps=true&includePrePost=true&events=div%7Csplit%7Cearn`)
+
+    if (options.interval === '5d') {
+        interval = '5m';
+        start.subtract(6, 'day');
+        end.set(start);
+    }
+
+    console.log(start.format(), end.format());
+
+    getJson(`https://query2.finance.yahoo.com/v7/finance/chart/${symbol}?period2=${end.unix()}&period1=${start.unix()}&interval=${interval}&indicators=quote&includeTimestamps=true&includePrePost=true&events=div%7Csplit%7Cearn`)
         .then((response) => {
             const quote = response.chart.result[0].indicators.quote[0];
             const meta = response.chart.result[0].meta;
