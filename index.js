@@ -1,6 +1,8 @@
 const https = require('https');
 const cheerio = require('cheerio');
 
+const RANGES = ['1h', '1d', '5d', '1mo', '1y', 'max'];
+
 const get = (url) => new Promise((resolve, reject) => {
     const req = https.get(url, (res) => {
         let data = '';
