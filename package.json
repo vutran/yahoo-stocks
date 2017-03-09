@@ -1,0 +1,34 @@
+{
+  "name": "yahoo-finance",
+  "version": "1.0.0",
+  "description": "> Scrape data from Yahoo! Finance",
+  "main": "index.js",
+  "bin": {
+    "stocks": "./cli.js"
+  },
+  "dependencies": {
+    "caporal": "^0.3.0",
+    "cheerio": "^0.22.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vutran/yahoo-finance.git"
+  },
+  "keywords": [
+    "yahoo",
+    "finance",
+    "stocks",
+    "trade",
+    "scraper"
+  ],
+  "author": "Vu Tran <vu@vu-tran.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/vutran/yahoo-finance/issues"
+  },
+  "homepage": "https://github.com/vutran/yahoo-finance#readme"
+}
