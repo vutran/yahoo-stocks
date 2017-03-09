@@ -7,8 +7,10 @@
     "stocks": "./cli.js"
   },
   "dependencies": {
-    "babar": "^0.1.0",
-    "caporal": "^0.3.0"
+    "bresenham": "^0.0.4",
+    "caporal": "^0.3.0",
+    "drawille": "^1.1.0",
+    "moment": "^2.17.1"
   },
   "devDependencies": {},
   "scripts": {

@@ -2,7 +2,8 @@
 
 const prog = require('caporal');
 const pkg = require('./package');
-const babar = require('babar');
+const Canvas = require('drawille');
+const line = require('bresenham');
 const yf = require('./index');
 
 prog
@@ -24,13 +25,21 @@ prog
                     return [ p.time, p.close ];
                 }
             );
-            const high = Math.max.apply(null, points.map(p => p[1]));
-            console.log(
-                babar(points, {
-                    caption: args.symbol,
-                    maxY: Math.ceil(high),
-                })
-            );
+            const low = Math.floor(Math.min.apply(null, points.map(p => p[1])));
+            const high = Math.ceil(Math.max.apply(null, points.map(p => p[1])));
+            const canvasWidth = 180;
+            const canvasHeight = 80;
+            const slice = high - low;
+            const stepY = canvasHeight / slice;
+            const c = new Canvas(canvasWidth, canvasHeight);
+
+            points.forEach((p, idx) => {
+                c.set(
+                    (idx * canvasWidth / points.length),
+                    (high - p[1]) * stepY
+                );
+            });
+            console.log(c.frame());
         });
     });
 
