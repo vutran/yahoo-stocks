@@ -50,13 +50,14 @@ const history = (symbol) => new Promise((resolve, reject) => {
     getJson(`https://query2.finance.yahoo.com/v7/finance/chart/${symbol}?interval=1h&indicators=quote&includeTimestamps=true&includePrePost=true&events=div%7Csplit%7Cearn`)
         .then((response) => {
             const h = response.chart.result[0].timestamp.map((time, idx) => {
+                const quote = response.chart.result[0].indicators.quote[0];
                 return {
                     time,
-                    close: response.chart.result[0].indicators.quote[0].close[idx],
-                    open: response.chart.result[0].indicators.quote[0].open[idx],
-                    high: response.chart.result[0].indicators.quote[0].high[idx],
-                    low: response.chart.result[0].indicators.quote[0].low[idx],
-                    volume: response.chart.result[0].indicators.quote[0].volume[idx],
+                    close: quote.close[idx],
+                    open: quote.open[idx],
+                    high: quote.high[idx],
+                    low: quote.low[idx],
+                    volume: quote.volume[idx],
                 };
             });
            resolve(h);

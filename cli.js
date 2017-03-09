@@ -19,14 +19,12 @@ prog
     .argument('<symbol>', 'The stock symbol')
     .action((args, options, logger) => {
         yf.history(args.symbol).then((response) => {
-            logger.info(response);
             const points = response.map(
                 (p) => {
                     return [ p.time, p.close ];
                 }
             );
             const high = Math.max.apply(null, points.map(p => p[1]));
-            console.log('\n');
             console.log(
                 babar(points, {
                     caption: args.symbol,
