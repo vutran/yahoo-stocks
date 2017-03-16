@@ -1,7 +1,7 @@
 {
-  "name": "stocks",
+  "name": "yahoo-stocks",
   "version": "1.0.0",
-  "description": "> Scrape data from Yahoo! Finance",
+  "description": "Scrape data from Yahoo! Finance",
   "main": "index.js",
   "dependencies": {
     "babel-plugin-transform-async-to-generator": "^6.22.0",
@@ -18,7 +18,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/vutran/stocks.git"
+    "url": "git+https://github.com/vutran/yahoo-stocks.git"
   },
   "keywords": [
     "yahoo",
@@ -30,7 +30,7 @@
   "author": "Vu Tran <vu@vu-tran.com>",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/vutran/stocks/issues"
+    "url": "https://github.com/vutran/yahoo-stocks/issues"
   },
-  "homepage": "https://github.com/vutran/stocks#readme"
+  "homepage": "https://github.com/vutran/yahoo-stocks#readme"
 }
