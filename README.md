@@ -1,5 +1,7 @@
 # yahoo-stocks
 
+[![Travis](https://img.shields.io/travis/vutran/yahoo-stocks/develop.svg?maxAge=2592000&style=flat-square)](https://travis-ci.org/vutran/yahoo-stocks) [![Coveralls branch](https://img.shields.io/coveralls/vutran/yahoo-stocks/develop.svg?maxAge=2592000&style=flat-square)](https://coveralls.io/github/vutran/yahoo-stocks) [![license](https://img.shields.io/github/license/vutran/yahoo-stocks.svg?maxAge=2592000&style=flat-square)](LICENSE)
+
 > Fetch stock data from Yahoo! Finance
 
 ## Install
