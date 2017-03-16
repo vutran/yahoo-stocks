@@ -1,6 +1,6 @@
 # yahoo-stocks
 
-> Scrape data from Yahoo! Finance
+> Fetch stock data from Yahoo! Finance
 
 ## Install
 

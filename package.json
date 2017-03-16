@@ -1,7 +1,7 @@
 {
   "name": "yahoo-stocks",
   "version": "1.0.0",
-  "description": "Scrape data from Yahoo! Finance",
+  "description": "Fetch stock data from Yahoo! Finance",
   "main": "index.js",
   "dependencies": {
     "babel-plugin-transform-async-to-generator": "^6.22.0",
