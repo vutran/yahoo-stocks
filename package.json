@@ -3,15 +3,7 @@
   "version": "1.0.0",
   "description": "> Scrape data from Yahoo! Finance",
   "main": "index.js",
-  "bin": {
-    "stocks": "./cli.js"
-  },
   "dependencies": {
-    "bresenham": "^0.0.4",
-    "caporal": "^0.3.0",
-    "color": "^1.0.3",
-    "colors": "^1.1.2",
-    "drawille": "^1.1.0",
     "moment": "^2.17.1"
   },
   "devDependencies": {},
