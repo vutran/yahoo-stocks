@@ -31,6 +31,10 @@ const lookup = (symbol) => new Promise((resolve, reject) => {
         getJson(`https://query1.finance.yahoo.com/v10/finance/quoteSummary/${symbol}?&modules=summaryProfile,financialData`),
     ])
         .then((responses) => {
+            if (!responses[0].ResultSet.Result.length) {
+                reject(true);
+                return;
+            }
             const financialData = responses[1].quoteSummary.result[0].financialData;
             resolve({
                 symbol,
@@ -51,13 +55,11 @@ const history = (symbol, options) => new Promise((resolve, reject) => {
     const start = moment().utc().hour(14).minute(30).second(0).millisecond(0).subtract(1, 'day');
     const end = start.clone().hour(21).minute(0).second(0).millisecond(0);
 
-    if (options.interval === '5d') {
+    if (options && options.interval === '5d') {
         interval = '5m';
         start.subtract(6, 'day');
         end.set(start);
     }
-
-    console.log(start.format(), end.format());
 
     getJson(`https://query2.finance.yahoo.com/v7/finance/chart/${symbol}?period2=${end.unix()}&period1=${start.unix()}&interval=${interval}&indicators=quote&includeTimestamps=true&includePrePost=true&events=div%7Csplit%7Cearn`)
         .then((response) => {
