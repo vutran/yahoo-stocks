@@ -52,7 +52,9 @@ Type: `Object`
 
 A dictionary of customizable options
 
-- `interval` - Set the interval for the price changes (Currently available options: `5d`)
+- `interval` - Set the interval for the price changes, e.g. `1m`, `1d`, `5d`, `1mo`, `1y`.
+- `start` - Set the start timestamp string, as supported by [moment.js](https://momentjs.com/docs/#/parsing/string/), e.g. `'2013-02-08 09:30:26.123'`.
+- `end` - Set the start timestamp string, as supported by [moment.js](https://momentjs.com/docs/#/parsing/string/), e.g. `'2013-02-09 16:30:26.123'`.
 
 ## License
 
