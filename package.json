@@ -2,7 +2,9 @@
     "name": "yahoo-stocks",
     "version": "2.0.2",
     "description": "Fetch stock data from Yahoo! Finance",
-    "main": "index.js",
+    "main": "dist/index.js",
+    "module": "dist/index.m.js",
+    "source": "index.js",
     "devDependencies": {
         "babel-core": "^6.26.0",
         "babel-jest": "^22.4.3",
@@ -12,12 +14,16 @@
         "husky": "^0.14.3",
         "jest": "^22.4.3",
         "lint-staged": "^7.0.4",
+        "microbundle": "^0.4.4",
         "prettier": "^1.12.0"
     },
     "scripts": {
+        "build": "microbundle",
+        "dev": "microbundle watch",
         "fmt": "prettier --write {index.js,README.md}",
         "precommit": "lint-staged",
-        "test": "jest --coverage"
+        "test": "jest --coverage",
+        "prepublish": "npm run build"
     },
     "repository": {
         "type": "git",
@@ -41,5 +47,6 @@
             "prettier --write",
             "git add"
         ]
-    }
+    },
+    "dependencies": {}
 }
