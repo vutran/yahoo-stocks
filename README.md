@@ -52,8 +52,9 @@ Type: `Object`
 
 A dictionary of customizable options
 
-- `interval` - Set the interval for the price changes, e.g. `1m`, `1d`, `5d`, `1mo`, `1y`.
-- `range` - Set the range of dates to include in the output, value values are: `1d`, `5d`, `1mo`, `3mo`, `6mo`, `1y`, `2y`, `5y`, `10y`, `ytd`, `max`
+*   `interval` - Set the interval for the price changes, e.g. `1m`, `1d`, `5d`, `1mo`, `1y`.
+*   `range` - Set the range of dates to include in the output, value values are: `1d`, `5d`, `1mo`, `3mo`, `6mo`, `1y`, `2y`, `5y`, `10y`, `ytd`, `max`
+
 ## License
 
 MIT © [Vu Tran](https://github.com/vutran/)

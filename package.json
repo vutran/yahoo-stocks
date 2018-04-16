@@ -1,37 +1,45 @@
 {
-  "name": "yahoo-stocks",
-  "version": "2.0.1",
-  "description": "Fetch stock data from Yahoo! Finance",
-  "main": "index.js",
-  "dependencies": {
-    "babel-plugin-transform-async-to-generator": "^6.22.0",
-    "babel-polyfill": "^6.23.0",
-    "babel-preset-es2015": "^6.24.0",
-    "coveralls": "^2.12.0",
-    "moment": "^2.17.1"
-  },
-  "devDependencies": {
-    "babel-jest": "^19.0.0",
-    "jest": "^19.0.2"
-  },
-  "scripts": {
-    "test": "jest --coverage"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/vutran/yahoo-stocks.git"
-  },
-  "keywords": [
-    "yahoo",
-    "finance",
-    "stocks",
-    "trade",
-    "scraper"
-  ],
-  "author": "Vu Tran <vu@vu-tran.com>",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/vutran/yahoo-stocks/issues"
-  },
-  "homepage": "https://github.com/vutran/yahoo-stocks#readme"
+    "name": "yahoo-stocks",
+    "version": "2.0.1",
+    "description": "Fetch stock data from Yahoo! Finance",
+    "main": "index.js",
+    "devDependencies": {
+        "babel-core": "^6.26.0",
+        "babel-jest": "^22.4.3",
+        "babel-plugin-transform-object-rest-spread": "^6.26.0",
+        "babel-preset-env": "^1.6.1",
+        "coveralls": "^3.0.0",
+        "husky": "^0.14.3",
+        "jest": "^22.4.3",
+        "lint-staged": "^7.0.4",
+        "prettier": "^1.12.0"
+    },
+    "scripts": {
+        "fmt": "prettier --write {index.js,README.md}",
+        "precommit": "lint-staged",
+        "test": "jest --coverage"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/vutran/yahoo-stocks.git"
+    },
+    "keywords": [
+        "yahoo",
+        "finance",
+        "stocks",
+        "trade",
+        "scraper"
+    ],
+    "author": "Vu Tran <vu@vu-tran.com>",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/vutran/yahoo-stocks/issues"
+    },
+    "homepage": "https://github.com/vutran/yahoo-stocks#readme",
+    "lint-staged": {
+        "{index.js,README.md}": [
+            "prettier --write",
+            "git add"
+        ]
+    }
 }
