@@ -48,5 +48,9 @@
             "git add"
         ]
     },
-    "dependencies": {}
+    "files": [
+        "dist",
+        "LICENSE",
+        "README.md"
+    ]
 }
