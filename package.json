@@ -6,16 +6,16 @@
     "module": "dist/index.m.js",
     "source": "index.js",
     "devDependencies": {
-        "babel-core": "^6.26.0",
+        "babel-core": "^6.26.3",
         "babel-jest": "^22.4.3",
         "babel-plugin-transform-object-rest-spread": "^6.26.0",
         "babel-preset-env": "^1.6.1",
-        "coveralls": "^3.0.0",
+        "coveralls": "^3.0.1",
         "husky": "^0.14.3",
         "jest": "^22.4.3",
-        "lint-staged": "^7.0.4",
+        "lint-staged": "^7.1.0",
         "microbundle": "^0.4.4",
-        "prettier": "^1.12.0"
+        "prettier": "^1.12.1"
     },
     "scripts": {
         "build": "microbundle",
